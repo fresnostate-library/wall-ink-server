@@ -12,9 +12,9 @@ The wall-ink-server houses several important functions:
 * It hosts a website for the configuration of the Wall-Ink displays
 
 # Installation
-1. Install the following dependencies to a Linux server: ```git```, ```gcc```, ```make``` (tested with GNU Make), MariaDB or MySQL
-1. Clone this repo ```git clone https://github.com/caedm/wall-ink-server```
-1. Edit the information in ```wall-ink-server/web/config/settings.cfg.example``` and save the file as ```wall-ink-server/web/config/settings.cfg```  See the wiki article on [settings.cfg](https://github.com/caedm/wall-ink-server/wiki/settings.cfg) for a full explanation of each setting.
+1. Install the following dependencies to a Linux server: ```convert```, ```git```, ```gcc```, ```make``` (tested with GNU Make), ImageMagick, MariaDB or MySQL. (You may also need to acquire _glibc-static_, depending on your environment.)
+1. Clone this repo ```git clone https://github.com/caedm/wall-ink-server``` or your own fork.
+1. Edit the information in ```wall-ink-server/web/config/settings.cfg.example``` and save the file as ```wall-ink-server/web/config/settings.cfg```  See the wiki article on [settings.cfg](wiki/settings.cfg) for a full explanation of each setting.
 1. Create the table in mariadb or mysql by running the ```sql_setup.sh``` script in the wall-ink-server directory.  This script will only be successful if valid device database settings were set in the settings.cfg file above. 
 1. Edit ```wall-ink-server/web/device_manager/.htaccess``` with your organization's information.  Settings in .htaccess files protect your database passwords and other configuration settings from being world readable on the wall-ink-server web site, and this particular one also restricts access to the device manager website.
 1. Edit the image key in the Arduino sketch to match the image key in the ```wall-ink-server/web/config/settings.cfg``` file. See the wiki article on [image security](https://github.com/caedm/wall-ink-server/wiki/image_security) to understand the use and purpose of the image key. Point your Wall-Ink module at the server by changing the baseURL in the firmware.
