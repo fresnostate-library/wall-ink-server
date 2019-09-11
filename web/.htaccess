@@ -1,3 +1,5 @@
+php_value date.timezone 'America/Los_Angeles'
+
 <FilesMatch "^genimg$">
 Require all denied
 </FilesMatch>
