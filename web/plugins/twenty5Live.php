@@ -24,12 +24,13 @@ class twenty5LivePlugin implements iPlugin {
         return $rooms;
     }
     private function getResourceName($config, $resourceId) {
-        $resources = getResources($config);
+        $resources = $this->getResources($config);
         return $resources[$resourceId];
     }
     private function getSchedule($config, $resourceId) {
         /* 
          * https://github.com/caedm/wall-ink-server/wiki/Coding-a-new-plugin#getscheduleconfig-resourceid
+         * 
          * According to above documentation, this function must return a string formatted like:
          * 
          *  EB Team Room #224       (Room Name)
@@ -52,7 +53,6 @@ class twenty5LivePlugin implements iPlugin {
         $reservations = json_decode($jsonFileContents, true);
 
         // Step 3 : Parse JSON/Array into expected formatted lines
-        // TODO: Make sure to handle when room has no reservations.
         if (!empty($reservations)) {
             for ($i = 0; $i < count($reservations); $i++)  {
                 // Remove 'T' that comes in DateTime format: 2019-09-11T13:30:00
@@ -72,13 +72,13 @@ class twenty5LivePlugin implements iPlugin {
             $this->getSchedule($config, $device["resource_id"]),
             $config->bookedDisplayUrl,
             $config->twenty5LiveQrCodeBaseUrlBeginning . $resourceName . $config->twenty5LiveQrCodeBaseUrlEnd);
-    // Need to add resource name "LIB1222" rather than resource_id
-        }
+    }
     public function getDeviceType($device) {
         require_once("$_SERVER[DOCUMENT_ROOT]/plugin_dependencies/general_scheduling/schedulingGetDeviceType.php");
         return schedulingGetDeviceType($device, $this->getIndex());
     }
-}
+} // End class
+
 if ($config->twenty5LiveIntegrationActive == "true") {
     $twenty5Live = new twenty5LivePlugin;
     $plugins[ $twenty5Live->getIndex() ] = $twenty5Live;
