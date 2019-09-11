@@ -20,6 +20,7 @@
     $logs = fread($logfile, filesize("../log/$mac_address.log"));
     fclose($logfile);
     $logsArray = explode("\n",$logs);
+    $logsArray = array_reverse($logsArray);
     echo "<div class=\"logs\">";
     foreach ($logsArray as $log) {
         echo "<p class=\"log\">";
