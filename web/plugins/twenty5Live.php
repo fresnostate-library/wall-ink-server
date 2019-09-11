@@ -70,7 +70,7 @@ class twenty5LivePlugin implements iPlugin {
             $config,
             $device,
             $this->getSchedule($config, $device["resource_id"]),
-            $config->bookedDisplayUrl,
+            $config->twenty5LiveDisplayUrl,
             $config->twenty5LiveQrCodeBaseUrlBeginning . $resourceName . $config->twenty5LiveQrCodeBaseUrlEnd);
     }
     public function getDeviceType($device) {
