@@ -61,3 +61,15 @@ simpleTextPluginActive="true"
 icalWebPluginActive="false"
 icalWebQrCodeBaseUrlBeginning=""
 icalWebQrCodeBaseUrlEnd=""
+#
+# ****************************************
+# ******   25Live plugin settings   ******
+# ****************************************
+twenty5LiveIntegrationActive="false"
+twenty5LiveApiBaseUrlBeginning="25livepub.collegenet.com/calendars/"
+twenty5LiveApiBaseUrlEnd=".json?days=1"
+twenty5LiveWebName="WebNameFromSpud"
+twenty5LiveResources="RM99,RM151"
+twenty5LiveDisplayUrl="25live.collegenet.com/yoursubdomain"
+twenty5LiveQrCodeBaseUrlBeginning="your.domain.tld/?qr="
+twenty5LiveQrCodeBaseUrlEnd=""
