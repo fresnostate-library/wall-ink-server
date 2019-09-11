@@ -43,7 +43,7 @@ class twenty5LivePlugin implements iPlugin {
          */
 
         // Step 1 : Add Resource name to Schedule string
-        $resourceName = $this->getResourceName($resourceId);
+        $resourceName = $this->getResourceName($config, $resourceId);
         $schedule = $resourceName."\n";
 
         // Step 2 : Hit 25Live API for JSON with specific room
@@ -65,7 +65,7 @@ class twenty5LivePlugin implements iPlugin {
     }
     public function getImage($config, $device) {
         require_once("$_SERVER[DOCUMENT_ROOT]/plugin_dependencies/general_scheduling/schedulingGetImage.php");
-        $resourceName = $this->getResourceName($device["resource_id"]);
+        $resourceName = $this->getResourceName($config, $device["resource_id"]);
         return schedulingGetImage(
             $config,
             $device,
